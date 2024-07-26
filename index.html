@@ -696,6 +696,38 @@
     font-size: 14px;
     color: #666;
 }
+#ani1{
+    position: absolute;
+    z-index: -1; /* Places the image behind other elements */
+    top: 50%;
+    left:5%;
+    transform: translate(-50%, -50%); /* Centers the image */
+    animation: float 4s ease-in-out infinite;
+}
+#ani2{
+    position: absolute;
+    z-index: -1; /* Places the image behind other elements */
+    top: 100%;
+    left:80%;
+    transform: translate(-50%, -50%); /* Centers the image */
+    animation: float 4s ease-in-out infinite;
+}
+#ani3{
+    position: absolute;
+    z-index: -1; /* Places the image behind other elements */
+    top: 200%;
+    left:5%;
+    transform: translate(-50%, -50%); /* Centers the image */
+    animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+    0%, 100% {
+        transform: translate(-50%, -50%) translateY(0); /* Start and end state */
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(-20px); /* Mid state */
+    }
+}
     </style>
 
 
@@ -770,7 +802,7 @@
             </div>
         </div>
     </section>
-
+<img src="rocket.png" alt="" id="ani3">
     <section class="about" id="about">
         <div class="container">
             <h2 class="section__title">About Me</h2>
@@ -798,7 +830,7 @@
             </div>
         </div>
     </section>
-
+<img src="drone.png" alt="" id="ani2">
     <section class="section-skill" id="Skills">
         <div class="container">
             <h2 class="section__title">Skill</h2>
@@ -825,7 +857,7 @@
 
         </div>
     </section>
-
+  <img src="joystick.png" alt="" id="ani1" >
     <section class="Projects" id="MyProjects">
         <div class="container">
             <div class="our-Projects-top">
