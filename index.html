@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.2/css/boxicons.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harisudhan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        .container {
+            max-width: 1170px;
+            margin: 0 auto;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .col {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .row {
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333333;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+       
+
+        body a {
+            color: #161627;
+        }
+
+        body.dark-theme a {
+            color: #fff;
+        }
+
+        body.dark-theme .i {
+            color: #fff;
+        }
+
+        #theme-button {
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .header-bg {
+            width: 100%;
+            height: 80px;
+        }
+
+        header {
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .logo a {
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        ul.menu {
+            display: flex;
+            align-items: center;
+
+        }
+
+        .menu-list {
+            margin: 0 10px;
+        }
+
+        .header-praimary {
+            padding: 8px 15px;
+            text-transform: capitalize;
+            font-size: 15px;
+            position: relative;
+            color: #161627;
+        }
+
+        .header-praimary::after {
+            content: "";
+            display: block;
+            height: 2px;
+            width: 0;
+            margin: 0 auto;
+            background-color: #fcb201;
+            position: absolute;
+            bottom: -10px;
+            transition: width 0.5s;
+        }
+
+        .header-praimary:hover::after,
+        .header-praimary.active::after {
+            width: 100%;
+        }
+
+        .header-praimary:hover {
+            color: #fcb201;
+        }
+
+        .header .show-menu a {
+            color: #fff;
+        }
+
+        .menu-nav {
+            cursor: pointer;
+            padding: 0 10px;
+        }
+
+        .menu {
+            display: none;
+        }
+
+        .menu.show-menu {
+            display: block;
+        }
+
+        .header-nav {
+            display: none;
+            width: 35px;
+            height: 5px;
+            margin: 0 0 5px 0;
+            background-color: #161627;
+        }
+
+        .theme-list i {
+            font-size: 24px;
+        }
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            .show-menu {
+                flex-direction: column;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                right: 0;
+                background-color: #161627;
+                padding: 15px 0;
+                z-index: 1;
+                display: none;
+
+            }
+
+            ul.menu {
+                display: flex;
+                align-items: center;
+                display: none;
+            }
+
+            .header-nav {
+                display: block;
+            }
+
+            .show-menu .header-praimary {
+                color: #fff;
+            }
+
+            .header-praimary:hover {
+                color: #232646;
+                /* Adjusted hover color */
+            }
+
+            .menu-list {
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .menu-nav {
+                position: absolute;
+                right: 10px;
+                top: 40%;
+            }
+        }
+
+        .home {
+            padding: 60px 0;
+        }
+
+        .home__content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .home__social {
+            width: 10%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .home__social a {
+            font-size: 25px;
+        }
+
+
+        .home__data {
+            width: 60%;
+            margin: 0 auto;
+
+        }
+
+        .home__data h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .home__data h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .home__data p {
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+
+        .home__data a {
+            background-color: #5757e0;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 400;
+            display: inline-block;
+        }
+
+        .profile-img {
+            width: 40%;
+            margin: 0 auto;
+        }
+
+        .profile-img img {
+            width: 100%;
+        }
+
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            .home {
+                padding: 20px 0;
+            }
+
+            .home__content {
+                flex-direction: column;
+            }
+
+            .home__social {
+                width: 25%;
+                flex-direction: row;
+                margin-bottom: 10px;
+                display: none;
+            }
+
+            .home__social i {
+                margin-right: 10px;
+            }
+
+            .home__data {
+                width: 100%;
+                text-align: center;
+            }
+
+            .home__data h1 {
+                font-size: 18px;
+                margin-bottom: 5px;
+            }
+
+            .home__data h3 {
+                font-size: 15px;
+                margin-bottom: 5px;
+            }
+
+            .home__data p {
+                font-size: 13px;
+                margin-bottom: 10px;
+            }
+
+            .home__data a {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+
+            .profile-img {
+                width: 100%;
+            }
+        }
+
+        .about {
+            padding: 60px 0;
+        }
+
+        .section__title {
+            font-size: 60px;
+            text-align: center;
+        }
+
+        .section__subtitle {
+            font-size: 24px;
+            text-align: left;
+            margin-bottom: 15px;
+            font-weight: 400;
+            text-transform: capitalize;
+        }
+
+        .about_content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ab-img {
+            flex-basis: 50%;
+        }
+
+        .about_content img {
+            width: 100%;
+        }
+
+        .about__data {
+            flex-basis: 50%;
+        }
+
+        .about__data p {
+            font-size: 15px;
+            line-height: 28px;
+            margin-bottom: 20px;
+        }
+
+        .about__info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .about_buttons a {
+            background-color: #5757e0;
+            color: #fff;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            font-weight: 400;
+            display: inline-block;
+        }
+
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            .section__title {
+                font-size: 25px;
+                margin-bottom: 0;
+            }
+
+            .ab-img {
+                width: 100%;
+                ;
+            }
+
+            .about__data {
+                width: 100%;
+            }
+
+            .about_content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about__data p {
+                font-size: 13px;
+                margin-bottom: 10px;
+            }
+
+        }
+
+        .section-skill {
+            padding-bottom: 60px;
+        }
+
+        .section__title {
+            margin-bottom: 60px;
+        }
+
+        .skills {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+
+        }
+
+        .skillimg {
+            flex-basis: 20%;
+        }
+
+        .skills img {
+            width: 100%;
+        }
+
+        .skillimg2 img {
+            width: 15%;
+        }
+
+        .skill-rgt {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        .skill-rgt img {
+            width: 100%;
+            height: 500px;
+        }
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            .skill-lft {
+                flex-direction: column;
+            }
+
+
+            .skillimg {
+                flex-basis: 50%;
+            }
+
+            .section__title {
+                font-size: 25px;
+                margin-bottom: 0;
+            }
+        }
+
+        .Projects {
+            padding: 0 0 60px 0;
+        }
+
+        .Projects-btm {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .Projects-btm-inner {
+            flex-basis: 33.33%;
+            padding: 10px 15px;
+            transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+        }
+        .Projects-btm-inner:hover{
+            transform: translateX(-10px) scale(1.05);
+            transition: transform 2s ease-in, box-shadow 2s ease-in;
+            box-shadow: 0 5px 15px rgba(26, 25, 25, 0.1);
+        }
+
+
+        .Projects-btm-inner-2 {
+            border-radius: 40px;
+            transition: width, 2s;
+        }
+
+        .projects-btm-inner-2:hover {
+            transition: width, 2s;
+        }
+
+        .Projects-btm-inner-2 h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-transform: capitalize;
+        }
+
+        .Projects-btm-inner-2 img {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .projects-link a {
+            font-size: 28px;
+        }
+
+        .projects-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+
+
+        @media (min-width: 320px) and (max-width: 767px) {
+
+            .Projects-btm-inner {
+                flex-basis: 100%;
+                margin-bottom: 10px;
+            }
+
+        }
+
+        .experiences {
+            padding: 0 0 60px 0;
+        }
+
+        .exp-cont {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .experiance-cnt {
+            flex-basis: 50%;
+        }
+
+        .experiance-cnt img {
+            width: 100%;
+        }
+
+        .exp {
+            width: 50%;
+            padding: 10px 20px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+
+        .card p {
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 10px;
+        }
+
+        .section_title {
+            font-size: 60px;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .card h1 {
+            margin-bottom: 20px;
+            font-size: 40px;
+            text-transform: capitalize;
+        }
+
+        .card h3 {
+            font-size: 20px;
+        }
+
+        .cont-menu {
+            display: flex;
+            align-items: center;
+
+        }
+
+        .cont-menu li {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            .exp-cont {
+                flex-direction: column;
+            }
+
+            .exp {
+                width: 100%;
+
+            }
+
+            .card h1 {
+                font-size: 25px;
+            }
+
+            .card {
+                text-align: center;
+            }
+
+            .card p {
+                font-size: 14px;
+            }
+
+            .card h1 {
+                margin-bottom: 20px;
+                font-size: 25px;
+                text-transform: capitalize;
+            }
+
+            .card h3 {
+                font-size: 16px;
+            }
+
+            .cont-menu {
+                justify-content: center;
+            }
+
+        }
+        .contact-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 3rem;
+        }
+        
+       .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+       .contact-form label {
+            margin-bottom: 10px;
+        }
+        
+       .contact-form input,.contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+        }
+        
+       .contact-form input[type="submit"] {
+            background-color: #5757e0;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+       .contact-form input[type="submit"]:hover {
+            background-color: #363691;
+        }
+        .footer {
+    background-color: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer__title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer__social {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.footer__icon {
+    margin: 0 10px;
+    font-size: 24px;
+    color: #333;
+    transition: color 0.2s ease;
+}
+
+.footer__icon:hover {
+    color: #666;
+}
+
+.footer__copy {
+    font-size: 14px;
+    color: #666;
+}
+    </style>
+
+
+</head>
+
+<body>
+    <section class="header-bg">
+        <header id="navbar">
+            <div class="container">
+                <div class="header-inner">
+                    <div class="logo">
+                        <a href="#">HS</a>
+                    </div>
+                    <nav>
+                        <ul class="menu">
+                            <li class="menu-list">
+                                <a class="header-praimary" href="#home">Home</a>
+                            </li>
+                            <li class="menu-list"><a class="header-praimary" href="#about">About</a>
+                            </li>
+                            <li class="menu-list"><a class="header-praimary" href="#Skills">Skills</a>
+                            </li>
+                            <li class="menu-list"><a class="header-praimary" href="#MyProjects">Projects</a>
+                            </li>
+                            
+                            <li class="menu-list"><a class="header-praimary" href="#Contact-Me">Contact-Me</a>
+                            </li>
+                            <li class="theme-list"><a href="#"><i class="fa fa-toggle-on change-theme"
+                                        aria-hidden="true" id="theme-button"></i>
+                                </a></li>
+                        </ul>
+                        <div class="menu-nav">
+                            <span class="header-nav"></span>
+                            <span class="header-nav"></span>
+                            <span class="header-nav"></span>
+                        </div>
+                    </nav>
+                </div>
+        </header>
+    </section>
+
+    <section class="home section" id="home">
+        <div class="container">
+            <div class="home__content row">
+                <div class="home__social col">
+                    <a href="https://www.linkedin.com/in/saravanakumar1101?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                        target="_blank" class="home__social-icon">
+                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="https://github.com/Saravanakumar1101" target="_blank" class="home__social-icon">
+                        <i class="fa fa-github-square" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class=" col home__data">
+                    <h1 class="home__title">Hi, I'm Harisudhan</h1>
+                    <h3 class="home__subtitle">
+                        Web Developer
+                    </h3>
+                    <p class="home__description">
+                        passionate web developer specializing in HTML, CSS, JavaScript,
+                        and MS SQL. 🌐 With a focus on creating intuitive and user-friendly interfaces, I excel in
+                        transforming design ideas into responsive websites. 🔧 I thrive on solving complex problems and
+                        staying updated with the latest web technologies. Let's collaborate on crafting impactful
+                        digital experiences!
+                    </p>
+                    <a href="#Contact-Me">Contact me</a>
+                </div>
+                <div class=" col profile-img">
+                    <img src="sit.png" alt="profile">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section__title">About Me</h2>
+            <div class="about_content">
+                <div class=" col ab-img">
+                    <img src="sit2.png" alt="" class="about__img" />
+                </div>
+
+                <div class="col about__data">
+                    <p class="about__description">
+                        With a strong background in MS SQL, I specialize in database management, query optimization, and
+                        performance tuning, ensuring robust backend solutions. In front-end development, I excel in
+                        HTML, CSS, JavaScript, and React, crafting intuitive and engaging web interfaces. I seek a
+                        front-end development role to integrate my skills seamlessly, creating user-centric applications
+                        that solve real-world challenges. Passionate about innovation, I stay updated with the latest
+                        trends to deliver forward-thinking solutions. I'm eager to collaborate, network, and explore
+                        opportunities to contribute to impactful projects in the tech industry.
+                    </p>
+                    <div class="about_buttons">
+                        <a download="" href="Hari Resume.pdf" target="_blank">
+                            Download CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-skill" id="Skills">
+        <div class="container">
+            <h2 class="section__title">Skill</h2>
+
+            <div class="row skill_contenet">
+                <div class="col skill-lft">
+                    <div class="skills">
+                        <div class="skillimg">
+                            <img src="html.png" alt="Skill">
+                        </div>
+                        <div class="skillimg">
+                            <img src="css.png" alt="Skill">
+                        </div>
+                        <div class="skillimg">
+                            <img src="js.png" alt="Skill">
+                        </div>
+                        <div class="skillimg">
+                            <img src="react-js.png" alt="Skill">
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="Projects" id="MyProjects">
+        <div class="container">
+            <div class="our-Projects-top">
+                <h2 class="section__title">
+                    My Projects
+                </h2>
+            </div>
+            <div class="row Projects-btm">
+                <div class="col Projects-btm-inner">
+                    <div class="Projects-btm-inner-2">
+                        <h3>
+                            code explorer
+                        </h3>
+                        <img src="work1.png" alt="education">
+                       
+
+                    </div>
+                </div>
+                <div class="col Projects-btm-inner">
+                    <div class="Projects-btm-inner-2">
+                        <h3>
+                           python powered game
+                        </h3>
+                        <img src="work2.png" alt="education">
+                        
+
+                    </div>
+                </div>
+                <div class="col Projects-btm-inner">
+                    <div class="Projects-btm-inner-2">
+                        <h3>
+                           cisco network academy
+                        </h3>
+                        <img src="work3.png" alt="education">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+
+    <section class="contactme " id="Contact-Me">
+        <div class="container">
+            <div class="contactme-top">
+                <h2 class="section__title">
+                    Contact
+                </h2>
+            </div>
+            <div class="exp-cont">
+                <div class="experiance-cnt">
+                    <img src="sit3.jpg" alt="" >
+                </div>
+                <div class="experience-cnt exp">
+                    <div class="card">
+                        <h1>getting in touch is Easy</h1>
+
+                        <p>
+                            I’m always excited to connect with fellow tech enthusiasts, potential collaborators, and
+                            anyone interested in web development. Whether you have a project idea, a question, or just
+                            want to chat about the latest trends in technology, feel free to reach out. Let's create
+                            something amazing together!
+                        </p>
+                        <ul class="cont-menu">
+                            <li>
+                                <a href="https://www.linkedin.com/in/saravanakumar1101?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                                    target="_blank" class="home__social-icon">
+                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/Saravanakumar1101" target="_blank"
+                                    class="home__social-icon">
+                                    <i class="fa fa-github-square" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li><a href="mailto:gsaravanakumar1101@gmail.com">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="contact-container">
+        <h2>Contact Us</h2>
+        <form class="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br><br>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message"></textarea><br><br>
+            <input type="submit" value="Send">
+        </form>
+    </div>
+    <footer class="footer">
+        <p class="footer__title">Harisudhan</p>
+        <div class="footer__social">
+            <a href="https://www.linkedin.com/in/hari-sudhan-234052256/" target="_blank" class="footer__icon">
+                <i class='bx bxl-linkedin'></i>
+            </a>
+            <a href="https://github.com/harisudhan8" target="_blank" class="footer__icon">
+                <i class='bx bxl-github'></i>
+            </a>
+            <a href="#" target="_blank" class="footer__icon">
+                <i class='bx bxl-facebook'></i>
+            </a>
+            <a href="#" target="_blank" class="footer__icon">
+                <i class='bx bxl-instagram'></i>
+            </a>
+            <a href="#" target="_blank" class="footer__icon">
+                <i class='bx bxl-twitter'></i>
+            </a>
+        </div>
+        <p class="footer__copy">&#169; Hi. All rights reserved</p>
+    </footer>
+</body>
+
+</html>
